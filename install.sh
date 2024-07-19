@@ -13,3 +13,6 @@ docker run \
     -v /home/$USER/.ssh:/home/user/.ssh \
     -v /home/$USER/.gitconfig:/home/user/.gitconfig \
     --name smartgit smartgit
+
+rm $HOME/.local/share/applications/smartgit.desktop
+desktop-file-install smartgit.desktop --dir=$HOME/.local/share/applications

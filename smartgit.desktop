@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=SmartGit
+Comment=GUI client for GIT
+Exec=/home/mrboriska/smartgit_test/smartgit.sh
+Icon=/home/mrboriska/smartgit_test/smartgit.png
+Terminal=false
