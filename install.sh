@@ -1,6 +1,8 @@
 #!/bin/bash
 
-docker build . -t smartgit
+docker rm smartgit
+docker rmi smartgit
+docker build . --no-cache -t smartgit
 xhost +local:docker
 docker run \
     -e DISPLAY=$DISPLAY \
