@@ -6,7 +6,6 @@ docker build . --no-cache -t smartgit
 xhost +local:docker
 docker run \
     -e DISPLAY=$DISPLAY \
-    --privileged \
     --mount type=bind,src=$SSH_AUTH_SOCK,target=$SSH_AUTH_SOCK \
     -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
