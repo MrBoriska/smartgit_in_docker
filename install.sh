@@ -1,8 +1,10 @@
 #!/bin/bash
 
+pip3 install requests beautifulsoup4
+
 docker rm smartgit
 docker rmi smartgit
-docker build . --no-cache -t smartgit
+docker build --build-arg DEB_URL=`python3 get_download_link.py` . --no-cache -t smartgit
 xhost +local:docker
 docker run \
     -e DISPLAY=$DISPLAY \
