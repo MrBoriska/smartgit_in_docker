@@ -2,9 +2,13 @@
 
 pip3 install requests beautifulsoup4
 
+DEB_URL=`python3 get_download_link.py`
+
+echo -e "\033[0;32mDownload link: ${DEB_URL} \033[0m"
+
 docker rm smartgit
 docker rmi smartgit
-docker build --build-arg DEB_URL=`python3 get_download_link.py` . --no-cache -t smartgit
+docker build --build-arg DEB_URL=$DEB_URL . -t smartgit
 xhost +local:docker
 docker run \
     -e DISPLAY=$DISPLAY \
