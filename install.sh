@@ -8,10 +8,13 @@ echo -e "\033[0;32mDownload link: ${DEB_URL} \033[0m"
 
 docker rm smartgit
 docker rmi smartgit
-docker build --build-arg DEB_URL=$DEB_URL . -t smartgit
+docker build --network host --build-arg DEB_URL=$DEB_URL . -t smartgit
 xhost +local:docker
 docker run \
     -e DISPLAY=$DISPLAY \
+    -e LANG=$LANG \
+    -e LC_ALL=C.UTF-8 \
+    -e _JAVA_OPTIONS="-Dfile.encoding=UTF-8" \
     --mount type=bind,src=$SSH_AUTH_SOCK,target=$SSH_AUTH_SOCK \
     -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
